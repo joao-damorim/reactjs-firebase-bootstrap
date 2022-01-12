@@ -1,12 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from '../src/view/usuario-novo/';
+/* Import statements */
+import React from "react";
+import ReactDOM from "react-dom";
 
+/* App é o ponto de entrada para o código React.*/
+import App from "./App";
+
+/* import BrowserRouter from 'react-router-dom' */
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
+import { Link } from 'react-router-dom';
+
 import firebase from '../../config/firebase';
 import 'firebase/compat/auth';
 
@@ -8,9 +10,6 @@ function Login() {
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
     const [msgTipo, setMsgTipo] = useState();
-
-
-
 
     function Logar(){
         firebase.auth().signInWithEmailAndPassword(email, senha).then(resultado => {
@@ -43,7 +42,7 @@ function Login() {
                     <div className="opcoes-login mt-5 text-center">
                         <a href="#" className="mx-2">Recuperar senha</a>
                         <span className="text-white">&#9733;</span>
-                        <a href="#" className="mx-2">Cadastrar</a>
+                        <Link to='novousuario' className="mx-2">Cadastrar</Link>
                     </div>
                 </form>
             </div>

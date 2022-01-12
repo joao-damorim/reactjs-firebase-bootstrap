@@ -1,9 +1,10 @@
+import React from 'react';
+import AppRoute from './routes';
 
-
-function App() {
+export default function App() {
   return (
-    <h1>Olá!</h1>
+    <AppRoute/>
   );
 }
 
-export default App;
+
