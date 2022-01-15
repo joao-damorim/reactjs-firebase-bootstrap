@@ -1,6 +1,6 @@
 /* Import statements */
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 /* App é o ponto de entrada para o código React.*/
 import App from "./App";
