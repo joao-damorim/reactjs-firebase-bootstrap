@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 import firebase from '../../config/firebase';
 import 'firebase/compat/auth';
+
+import { useSelector, useDispatch }  from 'react-redux';
+
 
 function Login() {
 
@@ -11,16 +14,27 @@ function Login() {
     const [senha, setSenha] = useState();
     const [msgTipo, setMsgTipo] = useState();
 
+    const dispatch = useDispatch();
+
     function Logar(){
         firebase.auth().signInWithEmailAndPassword(email, senha).then(resultado => {
             setMsgTipo('Sucesso!')
+            setTimeout(() => {
+            dispatch({type: 'LOG_IN', usuarioEmail: email});
+            },2000);
         }).catch(erro => {
             setMsgTipo('Erro!');
-        })
+        });
     }
+
+   
 
     return (
             <div className="login-content d-flex align-items-center">
+                {
+                    useSelector(state => state.usuarioLogado) > 0 ? <Navigate to='/'/> : null
+                }
+                
                 <form className="form-signin mx-auto">
 
                     <div className="text-center mb-4">
